@@ -14,8 +14,9 @@
     if ($_GET) {
         if ($_GET['lista'] == 'sim') {
             $result = $Ranking->listaRanking('Pontos','Desc');
-            while ($rank = $result->fetch_assoc()) {
-                echo "Nome: ".$rank['Nome']." Pontos: ".$rank['Pontos'];
+
+            foreach ($result as $show) {
+                echo $show['Nome']." " .$show['Pontos']." |";
             }
         }
     }

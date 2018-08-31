@@ -7,7 +7,7 @@
         protected $tabela;
 
         public function __construct($tabela)
-        {
+        {//Tabela do construtor onde será usado nas consultas
             parent::__construct();
             $this->tabela = $tabela;
         }
@@ -33,5 +33,18 @@
             } catch (mysqli_sql_exception $e) {
                 die($e->getMessage());
             }
+        }
+
+        public function logar($Nick,$Senha)
+        {
+            try {
+                $senhaHash = md5($Senha);
+                $result = $this->mysqli->query("SELECT Nick FROM " . $this->tabela." WHERE Nick = '$Nick' and Senha = '$senhaHash'")->fetch_all();
+                $this->mysqli->close();
+                return $result;
+            } catch (mysqli_sql_exception $e) {
+                die($e->getMessage());
+            }
+
         }
     }
