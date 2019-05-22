@@ -2,10 +2,10 @@
 //Criando por Joan Marcos #joanmrc96-GIT
      abstract class Conexao {
 
-        private $host = 'db4free.net';
-        private $username = 'pombosujogames';
-        private $password = '@pombosujo#';
-        private $dataBase = 'freefire';
+        private $host = '';
+        private $username = '';
+        private $password = '';
+        private $dataBase = '';
         protected $mysqli;
 
         public function __construct()
